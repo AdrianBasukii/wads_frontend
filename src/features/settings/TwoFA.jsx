@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import { useState, useEffect } from "react";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { getUserProfile, updateUserProfile } from "../../api/setting";
-import { useEnable2FA, useVerify2FA, useDisable2FA } from "../../queryoptionsfolder/twoFAQuery"
+import { useEnable2FA, useVerify2FA, useDisable2FA } from "../../queryOptionsFolder/twoFAQuery"
 
 const TwoFA = () => {
   const { user } = useAuthContext();

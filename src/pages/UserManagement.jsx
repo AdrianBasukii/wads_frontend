@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useAuthContext } from "../contexts/AuthContext";
 import { useState } from "react";
-import { getUsersQueryOptions, useCreateUsers } from "../queryoptionsfolder/usersQuery";
+import { getUsersQueryOptions, useCreateUsers } from "../queryOptionsFolder/usersQuery";
 import UserFilter from "../features/userManagement/UserFilter"
 import UserTable from "../features/userManagement/UserTable";
 import TicketPagination from "../features/tickets/TicketPagination";

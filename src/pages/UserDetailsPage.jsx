@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { useAuthContext } from "../contexts/AuthContext";
-import { getIndividualUsersQueryOptions, getUserActivityQueryOptions, useUpdateUser, useDeleteUser } from "../queryoptionsfolder/individualUsersQuery";
+import { getIndividualUsersQueryOptions, getUserActivityQueryOptions, useUpdateUser, useDeleteUser } from "../queryOptionsFolder/individualUsersQuery";
 import UserActivity from "../features/userManagement/UserActivity"
 import UserDetails from "../features/userManagement/UserDetails";
 
