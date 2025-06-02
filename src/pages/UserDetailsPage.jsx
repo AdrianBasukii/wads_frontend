@@ -4,6 +4,7 @@ import { useAuthContext } from "../contexts/AuthContext";
 import { getIndividualUsersQueryOptions, getUserActivityQueryOptions, useUpdateUser, useDeleteUser } from "../queryOptionsFolder/individualUsersQuery";
 import UserActivity from "../features/userManagement/UserActivity"
 import UserDetails from "../features/userManagement/UserDetails";
+import Loader from "../components/loader/Loader"
 
 export default function UserDetailsPage(){
     const userID = useParams();
@@ -18,7 +19,7 @@ export default function UserDetailsPage(){
     const { mutate: updateUser, isLoading: updating } = useUpdateUser(user.accessToken, userID.id);
     const { mutate: deleteUser, isLoading: deleting } = useDeleteUser(user.accessToken, userID.id);
 
-    if (userIsLoading || activityIsLoading) return <p>Loading...</p>
+    if (userIsLoading || activityIsLoading) return <Loader />
 
     return(
         <div className="w-full h-full grid grid-rows-[2fr_3fr] lg:grid-rows-none lg:grid-cols-[1fr_3fr] gap-12">

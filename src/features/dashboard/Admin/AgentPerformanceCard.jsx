@@ -1,6 +1,7 @@
 import CardTitle from "../CardTitle"
 import AgentPerformanceContent from "./AgentPerformanceContent"
 import AdminDropdown from "./AdminDropdown"
+import Loader from "../../../components/loader/Loader";
 import { useAdminDashboardContext } from "../../../contexts/AdminDashboardContext"
 import { useState } from "react"
 
@@ -23,7 +24,7 @@ export default function AgentPerformanceCard(){
         setSelectedOption(newOption);
     }
 
-    if(agentPerformanceLoading) return <>Loading...</>
+    if(agentPerformanceLoading) return <Loader />
 
     return(
         <div className="bg-white rounded-sm shadow-md border border-neutral-200">
