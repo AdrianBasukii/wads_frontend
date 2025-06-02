@@ -4,7 +4,7 @@ import { getUserProfile, updateUserProfile } from "../../api/setting";
 import { usePfpContext } from "../../contexts/PfpContext";
 import ProfilePicture from "./ProfilePicture";
 import Button from "../../components/app/Button";
-import Button from "../../components/loader/Loader";
+import Loader from "../../components/loader/Loader";
 import Input from "./Input";
 function ProfileSectionContent() {
   const { user } = useAuthContext();
