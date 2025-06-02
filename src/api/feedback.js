@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5000/api/feedback";
+const API_BASE_URL = "https://wads-backend.onrender.com/api/feedback";
 
 export const getAgentFeedbackSummary = async (token, agentId) => {
   const res = await fetch(`${API_BASE_URL}/agents/${agentId}`, {

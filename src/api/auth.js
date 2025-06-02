@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5000/api/users";
+const API_BASE_URL = "https://wads-backend.onrender.com/api/users";
 
 /**
  * Register a new user
@@ -49,12 +49,12 @@ export const login = async (credentials) => {
  */
 export const googleLogin = () => {
   // Include frontend callback URL in state parameter
-  const frontendCallbackUrl = 'http://localhost:5173/auth/google/callback';
+  const frontendCallbackUrl = process.env.CLIENT_URL ? `{${process.env.CLIENT_URL}/auth/google/callback}` : 'http://localhost:5173/auth/google/callback';
   window.location.href = `${API_BASE_URL}/auth/google?state=${encodeURIComponent(frontendCallbackUrl)}`;
 };
 
 export const getAccessTokenFromRefresh = async () => {
-  const res = await fetch(`http://localhost:5000/api/auth/refresh`, {
+  const res = await fetch(`https://wads-backend.onrender.com/api/auth/refresh`, {
     method: "POST",
     credentials: "include", // include cookie with refresh token
   });
@@ -69,7 +69,7 @@ export const getAccessTokenFromRefresh = async () => {
 };
 
 export const logout = async (token) => {
-  const res = await fetch(`http://localhost:5000/api/auth/logout`, {
+  const res = await fetch(`https://wads-backend.onrender.com/api/auth/logout`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5000/api/notifications";
+const API_BASE_URL = "https://wads-backend.onrender.com/api/notifications";
 
 /**
  * Get all notifications by user ID

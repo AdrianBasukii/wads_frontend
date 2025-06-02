@@ -30,7 +30,7 @@ const SocketProvider = ({ children }) => {
           fullUser: user,
         });
 
-        const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+        const apiUrl = import.meta.env.VITE_API_URL || "https://wads-backend.onrender.com";
         console.log("Initializing socket connection to:", apiUrl);
 
         newSocket = io(apiUrl, {

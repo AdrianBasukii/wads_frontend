@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5000/api/users";
+const API_BASE_URL = "https://wads-backend.onrender.com/api/users";
 
 export const getUsers = async (token, currentPage) => {
   const res = await fetch(`${API_BASE_URL}?page=${currentPage}&limit=10`, {

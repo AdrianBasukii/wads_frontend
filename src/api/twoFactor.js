@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5000/api/2fa";
+const API_BASE_URL = "https://wads-backend.onrender.com/api/2fa";
 
 /**
  * Enable 2FA for a user

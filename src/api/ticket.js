@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5000/api/tickets";
+const API_BASE_URL = "https://wads-backend.onrender.com/api/tickets";
 
 export const getTickets = async (token, currentPage) => {
   const res = await fetch(`${API_BASE_URL}?page=${currentPage}&limit=10`, {

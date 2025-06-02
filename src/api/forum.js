@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5000/api/messages";
+const API_BASE_URL = "https://wads-backend.onrender.com/api/messages";
 
 /**
  * Get all rooms for the current user

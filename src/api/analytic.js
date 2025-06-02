@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5000/api/analytics";
+const API_BASE_URL = "https://wads-backend.onrender.com/api/analytics";
 
 /**
  * Fetch global statistics (tickets, users, feedback)
