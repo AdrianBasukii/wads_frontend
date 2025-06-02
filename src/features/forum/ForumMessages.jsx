@@ -7,6 +7,7 @@ import MessageInput from "./MessageInput";
 import MessageArea from "./MessageArea";
 import MessageHeader from "./MessageHeader";
 import PropTypes from "prop-types";
+import Loader from "../../components/loader/Loader";
 
 function ForumMessages({ selectedRoomId, onBackClick }) {
   const { user } = useAuthContext();
@@ -69,12 +70,7 @@ function ForumMessages({ selectedRoomId, onBackClick }) {
     };
   }, [selectedRoomId, socket]);
 
-  if (isLoading)
-    return (
-      <div className="flex-1 flex flex-col h-full bg-white border border-[#D5D5D5] rounded-md">
-        <div className="p-4 text-center">Loading messages...</div>
-      </div>
-    );
+  if (isLoading) return <Loader />;
 
   if (queryError || error)
     return (

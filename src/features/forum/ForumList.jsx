@@ -4,6 +4,7 @@ import { useAuthContext } from "../../contexts/AuthContext";
 import { getUserRoomsQueryOptions } from "../../queryOptionsFolder/getForumQuery";
 import ChatHeader from "./ChatHeader";
 import Message from "./Message";
+import Loader from "../../components/loader/Loader";
 
 function ForumList({ onRoomSelect, selectedRoomId }) {
   const { user } = useAuthContext();
@@ -13,17 +14,7 @@ function ForumList({ onRoomSelect, selectedRoomId }) {
     error,
   } = useQuery(getUserRoomsQueryOptions(user.accessToken));
 
-  if (isLoading)
-    return (
-      <div className="bg-white border border-[#D5D5D5] h-full rounded-md p-4 md:w-80 w-full">
-        <div className="animate-pulse flex flex-col space-y-4">
-          <div className="h-10 bg-gray-200 rounded"></div>
-          <div className="h-20 bg-gray-200 rounded"></div>
-          <div className="h-20 bg-gray-200 rounded"></div>
-          <div className="h-20 bg-gray-200 rounded"></div>
-        </div>
-      </div>
-    );
+  if (isLoading) return <Loader />;
 
   if (error)
     return (

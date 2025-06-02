@@ -5,6 +5,7 @@ import getIndividualTicketsQueryOptions from "../queryOptionsFolder/getIndividua
 import { useAuthContext } from "../contexts/AuthContext";
 import CommunicationLog from "../features/tickets/CommunicationLog";
 import DetailHeader from "../features/tickets/DetailHeader";
+import Loader from "../components/loader/Loader";
 
 function TicketDetailsPage() {
   const ticketID = useParams();
@@ -14,11 +15,7 @@ function TicketDetailsPage() {
   );
 
   if (isLoading) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <p className="text-lg text-gray-600">Loading ticket details...</p>
-      </div>
-    );
+    return <Loader />;
   }
 
   if (error) {

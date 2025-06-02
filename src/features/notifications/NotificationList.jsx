@@ -5,6 +5,7 @@ import {
   getAdminNotificationsQueryOptions,
 } from "../../queryOptionsFolder/getNotificationsQuery";
 import { useAuthContext } from "../../contexts/AuthContext";
+import Loader from "../../components/loader/Loader";
 
 function NotificationList() {
   const { user } = useAuthContext();
@@ -21,7 +22,7 @@ function NotificationList() {
     ));
   }
 
-  if (isLoading) return <div>Loading</div>;
+  if (isLoading) return <Loader />;
 
   return (
     <div className="col-span-1">

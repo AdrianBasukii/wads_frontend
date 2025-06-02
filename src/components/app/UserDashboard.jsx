@@ -8,6 +8,7 @@ import { PiBookOpenText } from "react-icons/pi";
 import { MdOutlinePhoneEnabled } from "react-icons/md";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Loader from "../../components/loader/Loader";
 
 function UserDashboard() {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ function UserDashboard() {
   const { data, isLoading } = useQuery(getUserRecentOptions(user.accessToken));
 
   // Wait for data to finish loading
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loader />;
 
   return (
     <div className="flex flex-col gap-8 md:gap-12">
