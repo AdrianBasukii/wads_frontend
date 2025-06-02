@@ -52,7 +52,7 @@ src/
 │   └── analytics/# Analytics and reporting
 ├── hooks/        # Custom React hooks
 ├── pages/        # Page components
-├── queryoptions/ # React Query configurations
+├── queryoptionsfolder/ # React Query configurations
 ├── routes/       # Route definitions
 └── utils/        # Utility functions
 ```
