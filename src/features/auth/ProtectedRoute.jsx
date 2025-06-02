@@ -3,15 +3,10 @@ import { Navigate } from "react-router-dom";
 import { useAuthContext } from "../../contexts/AuthContext";
 
 function ProtectedRoute({ children, reverse = false }) {
-  const { user, registerLoading, loginLoading, requires2FA } = useAuthContext();
+  const { user, registerLoading, loginLoading } = useAuthContext();
 
   if (registerLoading || loginLoading) {
     return <div>Loading...</div>; // or a spinner component
-  }
-
-  // If 2FA is required, redirect to validation page
-  if (requires2FA) {
-    return <Navigate to="/validate" replace />;
   }
 
   if (reverse && user) {

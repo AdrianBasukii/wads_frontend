@@ -8,59 +8,15 @@ import {
   logout,
   getAccessTokenFromRefresh,
 } from "../api/auth";
-import { validate2fa } from "../api/twoFactor";
 import toast from "react-hot-toast";
 
 const AuthContext = createContext();
 
 function AuthProvider({ children }) {
   const [user, setUser] = useState("");
-  const [tempUid, setTempUid] = useState("");
-  const [requires2FA, setRequires2FA] = useState(false);
 
   const loginMutation = useMutation({
     mutationFn: login,
-    onSuccess: (data) => {
-      // Check if the response indicates 2FA is required (only has _id)
-      if (data._id && !data.accessToken) {
-        setTempUid(data._id);
-        setRequires2FA(true);
-        toast.success("2FA verification required", {
-          duration: 4000,
-          position: "top-right",
-          style: {
-            background: "#2196F3",
-            color: "#fff",
-          },
-        });
-      } else {
-        setUser(data);
-        setRequires2FA(false);
-        toast.success("Login successful!", {
-          duration: 4000,
-          position: "top-right",
-          style: {
-            background: "#4CAF50",
-            color: "#fff",
-          },
-        });
-      }
-    },
-    onError: (error) => {
-      toast.error("Login failed!", {
-        duration: 4000,
-        position: "top-right",
-        style: {
-          background: "#F44336",
-          color: "#fff",
-        },
-      });
-      console.error(`Login error: ${error.message}`);
-    },
-  });
-
-  const validateMutation = useMutation({
-    mutationFn: validate2fa,
     onSuccess: (data) => {
       setUser(data);
       toast.success("Login successful!", {
@@ -81,6 +37,7 @@ function AuthProvider({ children }) {
           color: "#fff",
         },
       });
+      console.error(`Login error: ${error.message}`);
     },
   });
 
@@ -168,10 +125,6 @@ function AuthProvider({ children }) {
       value={{
         user,
         setUser,
-        tempUid,
-        setTempUid,
-        requires2FA,
-        setRequires2FA,
 
         login: loginMutation.mutate,
         loginLoading: loginMutation.isLoading,
@@ -182,11 +135,6 @@ function AuthProvider({ children }) {
         registerLoading: registerMutation.isLoading,
         registerError: registerMutation.error,
         registerMutation,
-
-        validate: validateMutation.mutate,
-        validateLoading: validateMutation.isLoading,
-        validateError: validateMutation.error,
-        validateMutation,
 
         logoutFunc: logoutMutation.mutate,
         logoutLoading: logoutMutation.isLoading,

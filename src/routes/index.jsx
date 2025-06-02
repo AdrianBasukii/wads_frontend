@@ -7,7 +7,6 @@ import NotificationsPage from "../pages/NotificationsPage";
 import Setting from "../pages/Setting";
 import ForumPage from "../pages/ForumPage";
 import SignUpPage from "../pages/SignUpPage";
-import ValidationPage from "../pages/ValidationPage";
 import Chatbot from "../pages/Chatbot";
 import LoginPage from "../pages/LogInPage";
 import Tickets from "../pages/Tickets";
@@ -47,14 +46,7 @@ function AppRoutes() {
           </ProtectedRoute>
         }
       />
-      <Route
-        path="/validate"
-        element={
-          <ProtectedRoute reverse={true}>
-            <ValidationPage />
-          </ProtectedRoute>
-        }
-      />
+
       <Route path="/auth/google/callback" element={<GoogleCallback />} />
 
       {/* Protected Routes */}
