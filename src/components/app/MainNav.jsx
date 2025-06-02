@@ -3,7 +3,6 @@ import { MdDashboard } from "react-icons/md";
 import { LuTicketSlash } from "react-icons/lu";
 import { BsChatLeftText } from "react-icons/bs";
 import { FiUsers } from "react-icons/fi";
-import { IoAnalytics } from "react-icons/io5";
 import { IoIosNotifications, IoIosSettings, IoIosLogOut } from "react-icons/io";
 import { useAuthContext } from "../../contexts/AuthContext";
 import useLogout from "../../hooks/useLogout";
@@ -21,9 +20,6 @@ function MainNav() {
 
         {user.role === "admin" && (
           <>
-            <StyledLink location="/analytics" icon={IoAnalytics}>
-              Analytics
-            </StyledLink>
             <StyledLink location="/users" icon={FiUsers}>
               User Management
             </StyledLink>

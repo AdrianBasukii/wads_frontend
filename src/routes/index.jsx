@@ -10,7 +10,6 @@ import SignUpPage from "../pages/SignUpPage";
 import ValidationPage from "../pages/ValidationPage";
 import Chatbot from "../pages/Chatbot";
 import LoginPage from "../pages/LogInPage";
-import Analytics from "../pages/Analytics";
 import Tickets from "../pages/Tickets";
 import TicketDetailsPage from "../pages/TicketDetailsPage";
 import UserManagement from "../pages/UserManagement";
@@ -67,7 +66,6 @@ function AppRoutes() {
         }
         errorElement={<Error />}
       >
-        <Route path="/analytics" element={<Analytics/>} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/tickets" element={<Tickets />} />
         <Route path="/tickets/:id" element={<TicketDetailsPage />} />
