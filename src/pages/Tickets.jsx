@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useAuthContext } from "../contexts/AuthContext";
 import getTicketsQueryOptions from "../queryOptionsFolder/getTicketsQuery";
 import { useState } from "react";
+import Loader from "../components/loader/Loader";
 
 export default function Tickets() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -39,7 +40,7 @@ export default function Tickets() {
     }
   }
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loader />;
 
   return (
     <div className="flex flex-col gap-6 w-full h-full">
