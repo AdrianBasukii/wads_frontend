@@ -42,6 +42,7 @@ export default function PerformanceMetricsCard() {
           />
         </div>
       </CardTitle>
+
       {selectedOption === "Response Time" && (
         <>
           {responseTimeLoading && (
@@ -77,7 +78,7 @@ export default function PerformanceMetricsCard() {
             </div>
           )}
           {!serverUptimeLoading && !serverUptimeError && serverUptime && (
-            <SystemUptimeContent data={serverUptime} />
+            <SystemUptimeContent data={serverUptime.uptime} />
           )}
           {!serverUptimeLoading && !serverUptimeError && !serverUptime && (
             <div className="p-4 h-72 flex items-center justify-center text-gray-500">
