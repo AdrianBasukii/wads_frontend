@@ -84,9 +84,9 @@ export default function PerformanceMetricsCard() {
               No system uptime data available
             </div>
           )}
-          <button onClick={() => console.log(serverUptime)}>Test</button>
         </>
       )}
+      <button onClick={() => console.log(serverUptime)}>Test</button>
     </div>
   );
 }
