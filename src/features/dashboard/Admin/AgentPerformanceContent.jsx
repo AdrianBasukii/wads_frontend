@@ -41,13 +41,12 @@ export default function AgentPerformanceContent({ data }) {
             ></div>
           </div>
           <span className="ml-2 text-sm font-medium text-gray-700">
-            {resolvedPercentage}%
+            {Math.round(resolvedPercentage)}%
           </span>
         </div>
       </div>
     </div>
   );
 }
-
 
 
