@@ -4,6 +4,7 @@ import { getUserProfile, updateUserProfile } from "../../api/setting";
 import { usePfpContext } from "../../contexts/PfpContext";
 import ProfilePicture from "./ProfilePicture";
 import Button from "../../components/app/Button";
+import Loader from "../../components/loader/Loader";
 import Input from "./Input";
 function ProfileSectionContent() {
   const { user } = useAuthContext();
@@ -83,7 +84,7 @@ function ProfileSectionContent() {
   };
 
   if (loading)
-    return <div className="p-6 text-gray-600">Loading profile...</div>;
+    return <Loader />;
   if (error)
     return (
       <div className="p-6 text-red-600">Error loading profile: {error}</div>

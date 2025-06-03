@@ -59,7 +59,7 @@ function TicketDetails({ data }) {
               >
                 <div className="flex items-center">
                   <span className="mr-3">📎</span>
-                  <span className="text-sm">{attachment.fileName}</span>
+                  <span className="text-sm truncate max-w-[200px]" title={attachment.fileName}>{attachment.fileName}</span>
                 </div>
                 <a
                   href={`data:application/octet-stream;base64,${attachment.fileUrl}`}
