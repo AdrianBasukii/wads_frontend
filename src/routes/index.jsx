@@ -20,8 +20,6 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/home" />} />
-
-      {/* Public Routes */}
       <Route
         path="/home"
         element={
@@ -48,8 +46,6 @@ function AppRoutes() {
       />
 
       <Route path="/auth/google/callback" element={<GoogleCallback />} />
-
-      {/* Protected Routes */}
       <Route
         element={
           <ProtectedRoute>
