@@ -20,8 +20,6 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/home" />} />
-
-      {/* Public Routes */}
       <Route
         path="/home"
         element={

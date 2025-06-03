@@ -5,7 +5,7 @@ export default function TicketFilters({
   keyword,
   setKeyword,
   applyFilter,
-  handlePopup
+  handlePopup,
 }) {
   return (
     <div className="flex w-full gap-4 bg-white p-5 rounded-md shadow-md border border-gray-300">
@@ -42,14 +42,14 @@ export default function TicketFilters({
 
       <button
         type="button"
-        className="h-10 w-32 px-4 py-2 text-sm text-white bg-[#4A81C0] rounded-md hover:bg-[#3a6da3] focus:outline-none font-['Poppins'] hover:cursor-pointer"
+        className="h-10 w-auto px-4 py-2 text-sm text-white bg-[#4A81C0] rounded-md hover:bg-[#3a6da3] focus:outline-none font-['Poppins'] hover:cursor-pointer whitespace-nowrap min-w-[100px] md:min-w-[120px]"
         onClick={applyFilter}
       >
         Apply Filter
       </button>
       <button
         type="button"
-        className="h-10 w-32 px-4 py-2 text-sm text-white bg-[#4AC180] rounded-md hover:bg-[#3AA46A] focus:outline-none font-['Poppins'] hover:cursor-pointer"
+        className="h-10 w-auto px-4 py-2 text-sm text-white bg-[#4AC180] rounded-md hover:bg-[#3AA46A] focus:outline-none font-['Poppins'] hover:cursor-pointer whitespace-nowrap min-w-[100px] md:min-w-[120px]"
         onClick={handlePopup}
       >
         Create User

@@ -17,8 +17,7 @@ function SignUpPage() {
     timezone,
   });
   const [errors, setErrors] = useState({});
-  const { register, registerMutation, registerLoading, registerError } =
-    useAuthContext();
+  const { register, registerMutation } = useAuthContext();
 
   const handleChange = (e) => {
     const { name, value } = e.target;

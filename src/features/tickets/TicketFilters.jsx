@@ -31,7 +31,7 @@ export default function TicketFilters({
 
       <button
         type="button"
-        className="h-10 px-4 py-2 text-sm text-white bg-[#4A81C0] rounded-md hover:bg-[#3a6da3] focus:outline-none font-['Poppins'] hover:cursor-pointer"
+        className="h-10 px-4 py-2 text-sm text-white bg-[#4A81C0] rounded-md hover:bg-[#3a6da3] focus:outline-none font-['Poppins'] hover:cursor-pointer whitespace-nowrap min-w-[100px] md:min-w-[120px]"
         onClick={applyFilter}
       >
         Apply Filter
