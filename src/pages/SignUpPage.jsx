@@ -3,6 +3,7 @@ import AuthForm from "../features/auth/AuthForm";
 import getTimezone from "../utils/getTimezone";
 import { useAuthContext } from "../contexts/AuthContext";
 import NavigateOnSuccess from "../features/auth/NavigateOnSuccess";
+import Loader from "../components/loader/Loader";
 
 const timezone = getTimezone();
 
@@ -17,7 +18,7 @@ function SignUpPage() {
     timezone,
   });
   const [errors, setErrors] = useState({});
-  const { register, registerMutation } = useAuthContext();
+  const { register, registerMutation, registerLoading } = useAuthContext();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -74,6 +75,8 @@ function SignUpPage() {
   const handleGoogleLogin = () => {
     console.log("Google login clicked");
   };
+
+  if (registerLoading) return <Loader />;
 
   return (
     <>
