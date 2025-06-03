@@ -1,8 +1,10 @@
 import DonutChart from "../DonutChart";
 
 export default function AgentPerformanceContent({ data }) {
-  const { assignedTo, ticketsResolved, avgResponseTime, customerSatisfaction } =
-    data;
+  const { assignedTo, resolved, in_progress, pending } = data;
+
+  const totalTickets = resolved + in_progress + pending;
+  const resolvedPercentage = (resolved / totalTickets) * 100;
 
   return (
     <div className="p-4 h-72 overflow-y-auto">
@@ -17,14 +19,14 @@ export default function AgentPerformanceContent({ data }) {
         <div className="bg-gray-50 p-3 rounded-md">
           <p className="text-sm text-gray-500 mb-1">Tickets Resolved</p>
           <p className="text-2xl font-semibold text-blue-600">
-            {ticketsResolved}
+            {resolved}
           </p>
         </div>
 
         <div className="bg-gray-50 p-3 rounded-md">
-          <p className="text-sm text-gray-500 mb-1">Avg. Response Time</p>
+          <p className="text-sm text-gray-500 mb-1">Total Tickets Assigned</p>
           <p className="text-2xl font-semibold text-blue-600">
-            {avgResponseTime} min
+            {totalTickets}
           </p>
         </div>
       </div>
@@ -35,11 +37,11 @@ export default function AgentPerformanceContent({ data }) {
           <div className="w-full bg-gray-200 rounded-full h-2.5">
             <div
               className="bg-green-500 h-2.5 rounded-full"
-              style={{ width: `${customerSatisfaction}%` }}
+              style={{ width: `${resolvedPercentage}%` }}
             ></div>
           </div>
           <span className="ml-2 text-sm font-medium text-gray-700">
-            {customerSatisfaction}%
+            {resolvedPercentage}%
           </span>
         </div>
       </div>
