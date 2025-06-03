@@ -2,7 +2,7 @@ import { useState } from "react";
 import AuthForm from "../features/auth/AuthForm";
 import { useAuthContext } from "../contexts/AuthContext";
 import NavigateOnSuccess from "../features/auth/NavigateOnSuccess";
-
+import Loader from "../components/loader/Loader";
 function LoginPage() {
   const [formData, setFormData] = useState({
     email: "",
@@ -10,9 +10,8 @@ function LoginPage() {
   });
 
   const [errors, setErrors] = useState({});
-  const { login, loginMutation, loginLoading, loginError,
-        googleLogin, googleLoginLoading, googleLoginError, googleLoginMutation
-        } = useAuthContext();
+  const { login, loginMutation, loginLoading, googleLoginMutation } =
+    useAuthContext();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -60,6 +59,8 @@ function LoginPage() {
   const handleGoogleLogin = () => {
     googleLoginMutation.mutate();
   };
+
+  if (loginLoading) return <Loader />;
 
   return (
     <>

@@ -28,6 +28,20 @@ export default function DashboardTicketContent({ data }) {
   const renderMobileTickets = () => {
     return data.recentTickets.map((item) => (
       <div key={item._id} className="mb-4 p-3 border-b border-gray-200">
+        <div className="flex justify-between mb-2">
+          <span className="font-medium text-gray-700">Category:</span>
+          <span className="text-gray-700">{item.category}</span>
+        </div>
+        <div className="flex justify-between mb-2">
+          <span className="font-medium text-gray-700">Status:</span>
+          <span
+            className={`px-2 text-xs font-semibold rounded-full ${
+              statusColors[item.status.toLowerCase()]
+            }`}
+          >
+            {formatStatus(item.status.toLowerCase())}
+          </span>
+        </div>
         {user.role === "user" && (
           <div className="flex justify-between mb-2">
             <span className="font-medium text-gray-700">Assigned To:</span>
@@ -37,21 +51,7 @@ export default function DashboardTicketContent({ data }) {
           </div>
         )}
         <div className="flex justify-between mb-2">
-          <span className="font-medium text-gray-700">Category:</span>
-          <span className="text-gray-700">{item.category}</span>
-        </div>
-        <div className="flex justify-between mb-2">
-          <span className="font-medium text-gray-700">Status:</span>
-          <span
-            className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-              statusColors[item.status.toLowerCase()]
-            }`}
-          >
-            {formatStatus(item.status.toLowerCase())}
-          </span>
-        </div>
-        <div className="flex justify-between mb-2">
-          <span className="font-medium text-gray-700">Date:</span>
+          <span className="font-medium text-gray-700">Created:</span>
           <span className="text-gray-700">
             {format(parseISO(item.createdAt), "yyyy-MM-dd")}
           </span>
@@ -152,7 +152,13 @@ export default function DashboardTicketContent({ data }) {
       </div>
 
       {/* Mobile view */}
-      <div className="md:hidden w-full">{renderMobileTickets()}</div>
+      <div className="md:hidden w-full">
+        {data.recentTickets.length > 0 ? (
+          renderMobileTickets()
+        ) : (
+          <p className="text-center text-gray-500 py-4">No recent tickets</p>
+        )}
+      </div>
     </div>
   );
 }
