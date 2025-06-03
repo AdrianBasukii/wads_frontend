@@ -86,7 +86,6 @@ export default function PerformanceMetricsCard() {
           )}
         </>
       )}
-      <button onClick={() => console.log(serverUptime)}>Test</button>
     </div>
   );
 }
