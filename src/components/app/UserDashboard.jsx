@@ -12,17 +12,13 @@ import Loader from "../../components/loader/Loader";
 
 function UserDashboard() {
   const navigate = useNavigate();
-  // Ticket Popup
   const [showPopup, setShowPopup] = useState(false);
   function handlePopup() {
     setShowPopup((showPopup) => !showPopup);
   }
 
-  // Recent ticket data
   const { user } = useAuthContext();
   const { data, isLoading } = useQuery(getUserRecentOptions(user.accessToken));
-
-  // Wait for data to finish loading
   if (isLoading) return <Loader />;
 
   return (

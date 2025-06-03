@@ -1,6 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { createContext, useContext } from "react";
-import { getAgentStats, getAgentTicketStatus, getAgentRecentTickets } from "../api/dashboard";
+import {
+  getAgentStats,
+  getAgentTicketStatus,
+  getAgentRecentTickets,
+} from "../api/dashboard";
 import { useAuthContext } from "./AuthContext";
 
 const AgentDashboardContext = createContext();
@@ -28,7 +32,7 @@ function AgentDashboardProvider({ children }) {
 
   return (
     <AgentDashboardContext.Provider
-    value={{
+      value={{
         agentStats: agentStatsQuery.data,
         agentStatsLoading: agentStatsQuery.isLoading,
         agentStatsError: agentStatsQuery.error,
@@ -43,16 +47,17 @@ function AgentDashboardProvider({ children }) {
         agentRecentTicketsLoading: agentRecentTicketsQuery.isLoading,
         agentRecentTicketsError: agentRecentTicketsQuery.error,
         refetchAgentRecentTickets: agentRecentTicketsQuery.refetch,
-    }}
+      }}
     >
-    {children}
+      {children}
     </AgentDashboardContext.Provider>
   );
 }
 
 function useAgentDashboardContext() {
   const context = useContext(AgentDashboardContext);
-  if (!context) throw new Error("AgentDashboardContext is used outside of provider");
+  if (!context)
+    throw new Error("AgentDashboardContext is used outside of provider");
   return context;
 }
 

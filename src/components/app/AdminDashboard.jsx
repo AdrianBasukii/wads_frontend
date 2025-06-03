@@ -44,8 +44,9 @@ export default function AdminDashboard() {
   if (isLoading) return <Loader />;
 
   return (
-    <div className="grid grid-rows-3 gap-6">
-      <div className="grid grid-cols-3 gap-6">
+    <div className="flex flex-col gap-6">
+      {/* First row - stats cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div>
           <TicketOverviewCard stats={globalStats || tempStats} />
         </div>
@@ -57,7 +58,8 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      <div className="grid grid-cols-[2fr_1fr] gap-6">
+      {/* Second row - tickets and activity */}
+      <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6">
         <div>
           <DashboardTicketCard data={data} />
         </div>
@@ -66,7 +68,8 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      <div className="grid grid-cols-[1fr_2fr] gap-6">
+      {/* Third row - performance metrics */}
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6">
         <div>
           <AgentPerformanceCard />
         </div>
