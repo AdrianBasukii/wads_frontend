@@ -9,7 +9,7 @@ export default function BotButtonGroup() {
   };
 
   return (
-    <div className="mt-4 flex gap-3">
+    <div className="w-full mt-4 flex flex-wrap gap-3">
       <BotButton
         content="Equipment Support"
         onClick={() =>
