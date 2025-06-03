@@ -8,9 +8,11 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+// eslint-disable-next-line react/prop-types
 export default function SystemUptimeContent({ data }) {
   // Transform the data for the chart
   const transformedData =
+    // eslint-disable-next-line react/prop-types
     data?.map((item) => ({
       date: new Date(item.date).toLocaleDateString("en-US", {
         month: "short",
@@ -19,6 +21,7 @@ export default function SystemUptimeContent({ data }) {
       uptime: item.uptimePercentage,
     })) || [];
 
+  // eslint-disable-next-line react/prop-types
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
