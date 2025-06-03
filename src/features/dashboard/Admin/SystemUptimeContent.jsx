@@ -11,22 +11,21 @@ import {
 // eslint-disable-next-line react/prop-types
 export default function SystemUptimeContent({ data }) {
   // Transform the data for the chart
-  const transformedData =
-    // eslint-disable-next-line react/prop-types
-    data?.map((item) => ({
-      date: new Date(item.date).toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-      }),
-      uptime: item.uptimePercentage,
-    })) || [];
+  const transformedData = data
+    ? [
+        { period: "24h", uptime: parseFloat(data["24h"]) },
+        { period: "7d", uptime: parseFloat(data["7d"]) },
+        { period: "30d", uptime: parseFloat(data["30d"]) },
+        { period: "90d", uptime: parseFloat(data["90d"]) },
+      ]
+    : [];
 
   // eslint-disable-next-line react/prop-types
   const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
         <div className="bg-white p-3 shadow-md rounded-md border border-neutral-200">
-          <p className="text-sm text-gray-600">{`Date: ${label}`}</p>
+          <p className="text-sm text-gray-600">{`Period: ${label}`}</p>
           <p className="text-sm text-gray-600">{`Uptime: ${payload[0].value.toFixed(
             2
           )}%`}</p>
@@ -57,7 +56,7 @@ export default function SystemUptimeContent({ data }) {
               vertical={false}
             />
             <XAxis
-              dataKey="date"
+              dataKey="period"
               stroke="#bababa"
               tick={{ fontSize: 10, dx: 0, dy: 10, textAnchor: "start" }}
               interval="preserveStartEnd"
