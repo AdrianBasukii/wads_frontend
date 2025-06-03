@@ -42,7 +42,6 @@ export default function PerformanceMetricsCard() {
           />
         </div>
       </CardTitle>
-      <button onClick={() => console.log(serverUptime)}>Test</button>
 
       {selectedOption === "Response Time" && (
         <>
