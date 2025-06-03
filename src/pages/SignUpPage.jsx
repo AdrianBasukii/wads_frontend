@@ -18,7 +18,7 @@ function SignUpPage() {
     timezone,
   });
   const [errors, setErrors] = useState({});
-  const { register, registerMutation, registerLoading } = useAuthContext();
+  const { register, registerMutation, registerLoading, googleLoginMutation } = useAuthContext();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -72,8 +72,9 @@ function SignUpPage() {
       register(formData);
     }
   };
+  
   const handleGoogleLogin = () => {
-    console.log("Google login clicked");
+    googleLoginMutation.mutate();
   };
 
   if (registerLoading) return <Loader />;
