@@ -4,10 +4,13 @@ import { format, formatDistanceToNow, parseISO } from "date-fns";
 import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
 import TicketFeedback from "./TicketFeedback";
 import { useAuthContext } from "../../contexts/AuthContext";
+import { getFeedbackForTicket } from "../../api/feedback";
 
-function DetailHeader({ ticketData }) {
+function DetailHeader({ ticketData, ticketID }) {
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
+  const {data} = useQuery(getFeedbackForTicket(user.accessToken, ticketID ))
   const { user } = useAuthContext();
+
 
   const statusColors = {
     pending: "bg-yellow-100 text-yellow-600",
@@ -43,7 +46,7 @@ function DetailHeader({ ticketData }) {
             {formatStatus(ticketData.status)}
           </span>
 
-          {ticketData.status === "resolved" && user.role === "agent" && (
+          {ticketData.status === "resolved" && && (
             <button
               onClick={() => setShowFeedbackModal(true)}
               className="px-4 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md transition-colors duration-200 text-sm font-medium flex items-center gap-1"
@@ -62,7 +65,7 @@ function DetailHeader({ ticketData }) {
                   d="M5 13l4 4L19 7"
                 />
               </svg>
-              Rate Experience
+              {user.role === "user" ? "Rate Experience" : "Check your feedback"}
             </button>
           )}
         </div>
@@ -109,6 +112,7 @@ function DetailHeader({ ticketData }) {
               currentStatus={ticketData.status}
               onClose={() => setShowFeedbackModal(false)}
             />
+            <button onClick={()=> console.log(data)}>Test</button>
           </div>
         </div>
       )}

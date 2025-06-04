@@ -50,7 +50,7 @@ function TicketDetailsPage() {
               messages={ticketData.messages || []}
               currentStatus={ticketData.status}
             />
-            <TicketDetails data={ticketData} />
+            <TicketDetails data={ticketData} ticketID={ticketID} />
           </div>
         </div>
       </div>
