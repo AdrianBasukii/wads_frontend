@@ -3,9 +3,11 @@ import { useState } from "react";
 import { format, formatDistanceToNow, parseISO } from "date-fns";
 import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
 import TicketFeedback from "./TicketFeedback";
+import { useAuthContext } from "../../contexts/AuthContext";
 
 function DetailHeader({ ticketData }) {
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
+  const { user } = useAuthContext();
 
   const statusColors = {
     pending: "bg-yellow-100 text-yellow-600",
@@ -41,7 +43,7 @@ function DetailHeader({ ticketData }) {
             {formatStatus(ticketData.status)}
           </span>
 
-          {ticketData.status === "resolved" && (
+          {ticketData.status === "resolved" && user.role === "agent" && (
             <button
               onClick={() => setShowFeedbackModal(true)}
               className="px-4 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md transition-colors duration-200 text-sm font-medium flex items-center gap-1"
@@ -73,7 +75,10 @@ function DetailHeader({ ticketData }) {
       </div>
 
       {showFeedbackModal && (
-        <div className="fixed inset-0 flex items-center justify-center z-50" style={{ backgroundColor: 'rgba(0, 0, 0, 0.7)' }}>
+        <div
+          className="fixed inset-0 flex items-center justify-center z-50"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.7)" }}
+        >
           <div className="bg-white rounded-lg shadow-xl p-6 max-w-md w-full mx-4">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-semibold text-gray-800">
