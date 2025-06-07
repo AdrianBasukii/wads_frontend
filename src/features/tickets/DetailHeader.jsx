@@ -46,7 +46,7 @@ function DetailHeader({ ticketData, ticketID }) {
             {formatStatus(ticketData.status)}
           </span>
 
-          {ticketData.status === "resolved" && && (
+          {ticketData.status === "resolved" && (
             <button
               onClick={() => setShowFeedbackModal(true)}
               className="px-4 py-2 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-md transition-colors duration-200 text-sm font-medium flex items-center gap-1"

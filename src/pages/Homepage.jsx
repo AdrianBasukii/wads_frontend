@@ -13,7 +13,7 @@ function Homepage() {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-3">
-              <img src={logoImg} alt="Semesta Medika Logo" className="h-12 w-12 rounded-xl bg-white shadow" />
+              <img src={logoImg} alt="Semesta Medika Logo" className="h-12 w-12 rounded-xl" />
               <div>
                 <h1 className="text-[#155095] font-bold text-xl">PT Semesta Medika Makmur</h1>
                 <p className="text-gray-600 text-xs">Medical Equipment Solutions</p>
@@ -409,7 +409,7 @@ function Homepage() {
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="space-y-6">
               <div className="flex items-center gap-3">
-                <img src={logoImg} alt="SMM Support Portal Logo" className="h-12 w-12 rounded-xl bg-white shadow" />
+                <img src={logoImg} alt="SMM Support Portal Logo" className="h-12 w-12 rounded-xl" />
                 <div>
                   <div className="font-bold text-lg">SMM Support Portal</div>
                   <div className="text-gray-400 text-sm">Always here to help</div>
