@@ -85,7 +85,7 @@ function DetailHeader({ ticketData, ticketID }) {
           <div className="bg-white rounded-lg shadow-xl p-6 max-w-md w-full mx-4">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-semibold text-gray-800">
-                Rate Your Experience
+                Your Feedback
               </h3>
               <button
                 onClick={() => setShowFeedbackModal(false)}
