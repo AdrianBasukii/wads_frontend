@@ -48,7 +48,7 @@ function TicketFeedback({ ticketId, currentStatus, onClose }) {
     return null;
   }
 
-  if (user.role === "agent") {
+  if (user.role === "agent" || user.role === "admin") {
     return (
       <div className="p-4 rounded-md">
         <h4 className="text-sm font-medium text-gray-700 mb-3">
