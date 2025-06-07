@@ -4,7 +4,6 @@ import { getUserProfile, updateUserProfile } from "../../api/setting";
 import { usePfpContext } from "../../contexts/PfpContext";
 import ProfilePicture from "./ProfilePicture";
 import Button from "../../components/app/Button";
-import Loader from "../../components/loader/Loader";
 import Input from "./Input";
 function ProfileSectionContent() {
   const { user } = useAuthContext();
@@ -84,7 +83,7 @@ function ProfileSectionContent() {
   };
 
   if (loading)
-    return <Loader />;
+    return <div className="p-6 text-gray-600">Loading profile...</div>;
   if (error)
     return (
       <div className="p-6 text-red-600">Error loading profile: {error}</div>
@@ -120,9 +119,6 @@ function ProfileSectionContent() {
         <Input value={formData.email} readOnly disabled>
           Email
         </Input>
-        <p className="text-sm text-gray-500 mt-1">
-          This email will be used for notifications
-        </p>
       </div>
 
       <div className="mb-6">
@@ -139,10 +135,12 @@ function ProfileSectionContent() {
           type="dropdown"
           value={formData.department}
           options={[
-            { value: "-", label: "Select Department" },
-            { value: "us", label: "US" },
-            { value: "ca", label: "Canada" },
-            { value: "uk", label: "UK" },
+            { value: "-", label: "None" },
+            { value: "radiology", label: "Radiology" },
+            { value: "cardiology", label: "Cardiology" },
+            { value: "laboratory", label: "Laboratory" },
+            { value: "pharmacy", label: "Pharmacy" },
+            { value: "other", label: "Other" },
           ]}
           onChange={handleChange("department")}
         >
@@ -151,18 +149,8 @@ function ProfileSectionContent() {
       </div>
 
       <div className="mb-6">
-        <Input
-          type="dropdown"
-          value={formData.timeZone}
-          options={[
-            { value: "-", label: "Select Time Zone" },
-            { value: "1", label: "UTC-8 (Pacific)" },
-            { value: "2", label: "UTC-5 (Eastern)" },
-            { value: "3", label: "UTC+0 (London)" },
-          ]}
-          onChange={handleChange("timeZone")}
-        >
-          Time zone
+        <Input value={formData.timeZone} readOnly disabled>
+          Timezone
         </Input>
       </div>
 

@@ -16,6 +16,15 @@ export default function UserDetails({ user, updateUser, deleteUser }){
     const [confirmEmail, setConfirmEmail] = useState("")
 
     const roles = ["admin", "agent", "user"]
+    const departments = [
+        "none",
+        "radiology",
+        "cardiology",
+        "emergency",
+        "laboratory",
+        "pharmacy",
+        "other"
+        ];
     const [userRole, updateRole] = useState(user.role)
     const [userDept, updateDept] = useState(user.department)
 
@@ -114,7 +123,7 @@ export default function UserDetails({ user, updateUser, deleteUser }){
 
                 <UserDetailSections title="Configurations">
                     <EditableUserDetail options={roles} onChange={updateRole} value={userRole} title={"Role"}/>
-                    <EditableUserDetail onChange={updateDept} value={userDept} title={"Department"}/>
+                    <EditableUserDetail options={departments} onChange={updateDept} value={userDept} title={"Department"}/>
                     <button onClick={handleUpdate} className="w-full text-center text-white bg-[#4A81C0] p-2 rounded-sm hover:cursor-pointer">Apply Changes</button>
                     <button onClick={handlePopup} className="w-full text-center text-white bg-[#FF6B6B] p-2 rounded-sm hover:cursor-pointer mt-4">Delete User</button>
                 </UserDetailSections>
