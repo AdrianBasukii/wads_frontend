@@ -9,9 +9,8 @@ import { getFeedbackForTicket } from "../../api/feedback";
 
 function DetailHeader({ ticketData, ticketID }) {
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
-  const {data} = useQuery(getFeedbackForTicket(user.accessToken, ticketID ))
   const { user } = useAuthContext();
-
+  const {data} = useQuery(getFeedbackForTicket(user.accessToken, ticketID ))
 
   const statusColors = {
     pending: "bg-yellow-100 text-yellow-600",
