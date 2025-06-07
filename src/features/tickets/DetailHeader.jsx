@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { format, formatDistanceToNow, parseISO } from "date-fns";
 import capitalizeFirstLetter from "../../utils/capitalizeFirstLetter";
 import TicketFeedback from "./TicketFeedback";

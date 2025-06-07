@@ -44,11 +44,41 @@ function TicketFeedback({ ticketId, currentStatus, onClose }) {
     submitFeedbackMutation({ rating });
   };
 
-  if (user.role !== "user" || currentStatus !== "resolved") {
+  if (currentStatus !== "resolved") {
     return null;
   }
 
-  if (existingFeedback) {
+  if (user.role === "agent") {
+    return (
+      <div className="p-4 rounded-md">
+        <h4 className="text-sm font-medium text-gray-700 mb-3">
+          User Feedback
+        </h4>
+        {existingFeedback ? (
+          <div className="flex items-center gap-2">
+            <span
+              className={`px-3 py-1 rounded-full text-sm ${
+                existingFeedback.rating === "positive"
+                  ? "bg-green-100 text-green-800"
+                  : existingFeedback.rating === "neutral"
+                  ? "bg-yellow-100 text-yellow-800"
+                  : "bg-red-100 text-red-800"
+              }`}
+            >
+              {existingFeedback.rating.charAt(0).toUpperCase() +
+                existingFeedback.rating.slice(1)}
+            </span>
+            <p className="text-gray-600 text-sm">User has submitted feedback.</p>
+          </div>
+        ) : (
+          <p className="text-gray-500 text-sm">No feedback has been submitted yet.</p>
+        )}
+      </div>
+    );
+  }
+  
+
+  if (user.role === "user" && existingFeedback) {
     return (
       <div className="p-4 rounded-md">
         <h4 className="text-sm font-medium text-gray-700 mb-3">

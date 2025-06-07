@@ -21,7 +21,8 @@ function Ticket({ ticket }) {
             statusColors[ticket.status]
           }`}
         >
-          {capitalizeFirstLetter(ticket.status)}
+          {ticket.status === "in_progress" && <>In Progress</>}
+          {!(ticket.status === "in_progress") && capitalizeFirstLetter(ticket.status)}
         </span>
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
