@@ -17,7 +17,7 @@ function Ticket({ ticket }) {
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
         <span
-          className={`px-2 w-16 flex justify-center items-center inline-flex text-xs leading-5 font-semibold rounded-full ${
+          className={`px-2 w-20 flex justify-center items-center inline-flex text-xs leading-5 font-semibold rounded-full ${
             statusColors[ticket.status]
           }`}
         >

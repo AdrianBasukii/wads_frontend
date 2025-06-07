@@ -68,7 +68,6 @@ function TicketFeedback({ ticketId, currentStatus, onClose }) {
               {existingFeedback.rating.charAt(0).toUpperCase() +
                 existingFeedback.rating.slice(1)}
             </span>
-            <p className="text-gray-600 text-sm">User has submitted feedback.</p>
           </div>
         ) : (
           <p className="text-gray-500 text-sm">No feedback has been submitted yet.</p>

@@ -112,7 +112,6 @@ function DetailHeader({ ticketData, ticketID }) {
               currentStatus={ticketData.status}
               onClose={() => setShowFeedbackModal(false)}
             />
-            <button onClick={()=> console.log(data)}>Test</button>
           </div>
         </div>
       )}
